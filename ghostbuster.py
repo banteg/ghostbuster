@@ -6,7 +6,7 @@ import requests
 import click
 
 
-__version__ = '0.1.1'
+__version__ = '0.1.2'
 
 session = requests.Session()
 saved = set()
@@ -22,12 +22,12 @@ def find_links(content, from_url):
     local = urlparse(from_url).netloc
     local_links = set()
     for orig in links:
-        _, netloc, path, _, _, fragment = urlparse(orig)
+        _, netloc, path, *_ = urlparse(orig)
         if netloc not in (local, ''):
             continue
 
-        link = urljoin(from_url, path, fragment)
-        short = urlparse(link).path or '/'
+        link = urljoin(from_url, path or '/')
+        short = urlparse(link).path
 
         result = (orig, link, short)
         local_links.add(result)

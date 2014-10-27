@@ -1,6 +1,8 @@
 # ghostbuster
 
 Turn Ghost blog into static site.
+But you really shouldn't do that.
+
 Works with Ghost 0.5.3.
 
 ## Install

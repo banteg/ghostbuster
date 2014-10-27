@@ -6,7 +6,7 @@ import requests
 import click
 
 
-__version__ = '0.1-dev'
+__version__ = '0.1'
 
 session = requests.Session()
 saved = set()

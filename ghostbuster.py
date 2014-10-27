@@ -6,7 +6,7 @@ import requests
 import click
 
 
-__version__ = '0.1'
+__version__ = '0.1.1'
 
 session = requests.Session()
 saved = set()
@@ -27,7 +27,7 @@ def find_links(content, from_url):
             continue
 
         link = urljoin(from_url, path, fragment)
-        short = urljoin(path, fragment) or '/'
+        short = urlparse(link).path or '/'
 
         result = (orig, link, short)
         local_links.add(result)
